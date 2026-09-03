@@ -9,20 +9,23 @@ export default function SiteNav() {
   return (
     <header className="site-nav-wrap">
       <div className="site-nav shell">
-        <Link className="brand" to="/" onClick={close}>
+        <Link className="brand" to="/" onClick={close} aria-label="Ir al inicio">
           <span className="brand-dot" />
-          <strong>Jimmy.dev</strong>
+          <span className="brand-copy">
+            <strong>Jimmy</strong>
+            <small>Software & Technology</small>
+          </span>
         </Link>
 
-        <button className="nav-toggle" type="button" onClick={() => setOpen(!open)} aria-label="Abrir navegación">
+        <button className="nav-toggle" type="button" onClick={() => setOpen(!open)} aria-label="Abrir navegación" aria-expanded={open}>
           {open ? <X size={20} /> : <Menu size={20} />}
         </button>
 
         <nav className={open ? 'nav-links is-open' : 'nav-links'}>
           <NavLink to="/" onClick={close}>Inicio</NavLink>
-          <a href="#/##projects" onClick={close}>Proyectos</a>
-          <a href="#/##stack" onClick={close}>Stack</a>
-          <NavLink to="/about" onClick={close}>Sobre mí</NavLink>
+          <Link to="/?section=projects" onClick={close}>Proyectos</Link>
+          <Link to="/?section=stack" onClick={close}>Stack</Link>
+          <NavLink to="/about" onClick={close}>Perfil</NavLink>
           <NavLink className="nav-cta" to="/contact" onClick={close}>Contacto</NavLink>
         </nav>
       </div>

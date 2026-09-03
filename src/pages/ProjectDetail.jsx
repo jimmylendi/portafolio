@@ -1,5 +1,6 @@
-import { ArrowLeft, ExternalLink, GitBranch, ShieldCheck, TestTube2 } from 'lucide-react';
+import { ArrowLeft, ExternalLink, GitBranch, LockKeyhole, ShieldCheck, TestTube2 } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
+import FinanceOSPreview from '../components/FinanceOSPreview';
 import { projects } from '../data/portfolio';
 
 export default function ProjectDetail() {
@@ -28,6 +29,17 @@ export default function ProjectDetail() {
         <span className="status detail-status">{project.status}</span>
       </header>
 
+      {project.slug === 'financeos' && (
+        <section className="detail-product-preview">
+          <FinanceOSPreview />
+          <div>
+            <span className="eyebrow">Producto en evolución</span>
+            <h2>Una plataforma financiera, no un CRUD.</h2>
+            <p>La interfaz acompaña una arquitectura de dominio con ledgers, motores de cálculo, reglas de autorización y pruebas automatizadas.</p>
+          </div>
+        </section>
+      )}
+
       <section className="case-grid">
         <article>
           <span className="case-label">Problema</span>
@@ -43,7 +55,7 @@ export default function ProjectDetail() {
 
       <section className="detail-section">
         <div className="section-heading">
-          <span className="eyebrow">Architecture decisions</span>
+          <span className="eyebrow">Decisiones de arquitectura</span>
           <h2>Decisiones que importan.</h2>
         </div>
         <div className="decision-list">
@@ -78,7 +90,7 @@ export default function ProjectDetail() {
 
       <section className="detail-section">
         <div className="section-heading">
-          <span className="eyebrow">Highlights</span>
+          <span className="eyebrow">Capacidades</span>
           <h2>Qué demuestra este proyecto.</h2>
         </div>
         <div className="highlight-grid">
@@ -86,17 +98,25 @@ export default function ProjectDetail() {
         </div>
       </section>
 
-      {project.repo && (
+      {project.repo ? (
         <section className="repo-cta">
           <div>
-            <span className="eyebrow">Source</span>
+            <span className="eyebrow">Código fuente</span>
             <h2>Explora el proyecto en GitHub.</h2>
           </div>
           <a className="button button--primary" href={project.repo} target="_blank" rel="noreferrer">
             Abrir repositorio <ExternalLink size={17} />
           </a>
         </section>
-      )}
+      ) : project.repoNote ? (
+        <section className="repo-cta repo-cta--private">
+          <LockKeyhole size={22} />
+          <div>
+            <span className="eyebrow">Código fuente privado</span>
+            <p>{project.repoNote}</p>
+          </div>
+        </section>
+      ) : null}
     </main>
   );
 }

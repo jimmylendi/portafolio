@@ -7,7 +7,8 @@ export const profile = {
   github: 'https://github.com/jimmylendi',
   linkedin: '',
   email: '',
-  availability: 'Disponible para proyectos de software, automatización y sistemas internos',
+  cv: '',
+  availability: 'Disponible para conversar sobre desarrollo de software, automatización, sistemas internos y soluciones orientadas a datos.',
 };
 
 export const skillGroups = [
@@ -20,11 +21,11 @@ export const skillGroups = [
     items: ['PHP', 'Python', 'Flask', 'Firebase', 'REST architecture'],
   },
   {
-    title: 'Data',
+    title: 'Datos',
     items: ['Oracle', 'PL/SQL', 'MySQL', 'Firestore', 'SQL'],
   },
   {
-    title: 'Operations',
+    title: 'Operaciones',
     items: ['Git / GitHub', 'Windows Server', 'Networking', 'Task Scheduler', 'cPanel'],
   },
 ];
@@ -33,22 +34,22 @@ export const projects = [
   {
     slug: 'financeos',
     title: 'FinanceOS',
-    short: 'Personal Finance Intelligence Platform for the Dominican Republic.',
+    short: 'Plataforma de inteligencia financiera personal para República Dominicana.',
     category: 'Flagship · FinTech',
     status: 'En evolución activa',
     featured: true,
-    stack: ['React 19', 'Vite 7', 'Firebase', 'Firestore Rules', 'Node Test Runner'],
-    metrics: ['107 tests', '39 rules tests', '0 audit vulnerabilities', 'Responsive'],
+    stack: ['React 19', 'Vite', 'Firebase', 'Firestore Rules', 'Node Test Runner'],
+    metrics: ['107 tests', '39 reglas probadas', '0 vulnerabilidades audit', 'Responsive'],
     problem:
-      'Las herramientas financieras personales suelen quedarse en registrar gastos. FinanceOS busca convertir los datos financieros en decisiones: liquidez, deuda, presupuesto, metas, salud financiera y planificación.',
+      'Las herramientas financieras personales suelen quedarse en registrar gastos. FinanceOS busca convertir los datos financieros en decisiones sobre liquidez, deuda, presupuesto, metas, salud financiera y planificación.',
     solution:
       'Arquitectura modular con ledger inmutable, operaciones atómicas, Household como agregado financiero, reglas de seguridad en Firestore y motores puros para simulación y análisis.',
     decisions: [
       'Dinero almacenado en unidades menores enteras para evitar errores de punto flotante.',
       'Account, Card y Loan Ledgers inmutables con reversos en lugar de borrado físico.',
       'Pagos de tarjetas y capital de préstamos no se duplican como gasto.',
-      'Debt Strategy Engine con Avalancha y Bola de Nieve.',
-      'Health Score transparente y explicable, no presentado como score bancario.',
+      'Debt Strategy Engine con estrategias de Avalancha y Bola de Nieve.',
+      'Health Score transparente y explicable, sin presentarlo como score bancario oficial.',
       'Payroll RD con configuración fiscal versionada y pruebas de regresión.',
     ],
     highlights: [
@@ -65,13 +66,14 @@ export const projects = [
     ],
     result:
       'Proyecto portfolio-ready que demuestra producto, arquitectura, seguridad, testing, UX y modelado financiero en una sola plataforma.',
-    repo: 'https://github.com/jimmylendi/financeos',
+    repo: '',
+    repoNote: 'Código fuente privado. El caso de estudio documenta arquitectura, decisiones y resultados sin exponer información sensible.',
   },
   {
     slug: 'backup-monitoring',
     title: 'Backup Monitoring Platform',
     short: 'Automatización para supervisar procesos de respaldo y consolidar métricas operativas.',
-    category: 'Automation · Operations',
+    category: 'Automatización · Operaciones',
     status: 'Implementado',
     stack: ['Python', 'MySQL', 'PHP', 'Windows Task Scheduler'],
     metrics: ['Automatización diaria', 'Alertas por correo', 'Histórico mensual'],
@@ -92,10 +94,10 @@ export const projects = [
     slug: 'maintenance-management',
     title: 'Equipment Maintenance Management',
     short: 'Gestión preventiva de equipos con prioridades, estados, historial y programación.',
-    category: 'Enterprise Application',
+    category: 'Aplicación empresarial',
     status: 'Implementado',
     stack: ['PHP', 'Oracle', 'JavaScript', 'CSS'],
-    metrics: ['Oracle 11g', 'Responsive UI', 'Legacy compatibility'],
+    metrics: ['Oracle 11g', 'Responsive UI', 'Compatibilidad legacy'],
     problem:
       'La planificación preventiva de equipos requiere visibilidad de prioridad, próximos mantenimientos y trazabilidad histórica.',
     solution:
@@ -126,7 +128,7 @@ export const projects = [
       'Modelo relacional para catálogo y etiquetas.',
       'Diseño one-page orientado a móvil.',
     ],
-    highlights: ['Catálogo', 'Promociones', 'Detalle producto', 'Optimización imágenes'],
+    highlights: ['Catálogo', 'Promociones', 'Detalle producto', 'Optimización de imágenes'],
     result:
       'Experiencia de catálogo más rápida y adaptada al comportamiento móvil.',
   },

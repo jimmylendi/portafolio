@@ -2,17 +2,16 @@
 
 Portfolio profesional orientado a casos de estudio reales.
 
-## Incluye
+## Versión 1.1
 
-- Home profesional responsive
-- FinanceOS como flagship
-- Casos de estudio por proyecto
-- Stack técnico
-- Sobre mí
-- Contacto
-- Navegación móvil
-- GitHub Pages workflow
-- HashRouter para evitar errores 404 en Pages
+- Hero más compacto y legible.
+- FinanceOS elevado a proyecto principal con vista conceptual de producto.
+- Navegación por secciones compatible con HashRouter y GitHub Pages.
+- Jerarquía visual distinta entre proyecto flagship y proyectos secundarios.
+- Stack con iconografía y mejor densidad.
+- Contacto dinámico: GitHub siempre visible; email, LinkedIn y CV solo aparecen si se configuran.
+- Caso FinanceOS preparado para código privado sin enlaces rotos.
+- Mejoras responsive para desktop, laptop, tablet y móvil.
 
 ## Ejecutar
 
@@ -21,34 +20,27 @@ npm install
 npm run dev
 ```
 
-## Build
+## Validar
 
 ```bash
+npm audit
 npm run build
 ```
 
-## Datos personales
+## Personalizar
 
-Editar `src/data/portfolio.js` para completar:
+Editar `src/data/portfolio.js`:
 
-- `email`
-- `linkedin`
-- nombre completo si se desea
-- disponibilidad
-- proyectos adicionales
+- `profile.email`
+- `profile.linkedin`
+- `profile.cv`
+- nombre / titular profesional
+- proyectos y métricas
 
-## Publicar en GitHub Pages
+### Screenshots reales
 
-1. Crear repositorio, por ejemplo `portfolio`.
-2. Subir este proyecto a `main`.
-3. En GitHub: Settings → Pages → Source: GitHub Actions.
-4. El workflow `.github/workflows/deploy-pages.yml` construirá y publicará el sitio.
+La v1.1 usa una vista conceptual de FinanceOS para no inventar imágenes del producto. Cuando existan screenshots públicos y sin datos sensibles, pueden reemplazarse sin cambiar la arquitectura del sitio.
 
-## Recomendado antes de publicar
+## GitHub Pages
 
-- Añadir email público profesional
-- LinkedIn
-- CV PDF
-- Screenshots reales de FinanceOS
-- Foto profesional opcional
-- Dominio personalizado opcional
+El workflow `.github/workflows/deploy-pages.yml` despliega `main` mediante GitHub Actions.

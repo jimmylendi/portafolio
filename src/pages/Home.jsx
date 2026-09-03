@@ -1,21 +1,38 @@
-import { ArrowRight, Github, MapPin, ShieldCheck, TerminalSquare } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ArrowRight, Code2, Database, Github, MapPin, ServerCog, ShieldCheck, TerminalSquare } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import FinanceOSPreview from '../components/FinanceOSPreview';
 import ProjectCard from '../components/ProjectCard';
 import { principles, profile, projects, skillGroups } from '../data/portfolio';
 
+const skillIcons = [Code2, ServerCog, Database, TerminalSquare];
+
 export default function Home() {
+  const location = useLocation();
+  const financeOS = projects.find((project) => project.slug === 'financeos');
+  const secondaryProjects = projects.filter((project) => project.slug !== 'financeos');
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const section = params.get('section');
+    if (!section) return;
+    window.requestAnimationFrame(() => {
+      document.getElementById(section)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }, [location.search]);
+
   return (
     <main>
       <section className="hero shell">
         <div className="hero-copy">
-          <span className="eyebrow">Software · Automation · Infrastructure</span>
+          <span className="eyebrow">Software · Automatización · Datos · Infraestructura</span>
           <h1>Construyo sistemas que <span>resuelven problemas reales.</span></h1>
           <p>{profile.intro}</p>
 
           <div className="hero-actions">
-            <a className="button button--primary" href="#projects">
+            <Link className="button button--primary" to="/?section=projects">
               Ver proyectos <ArrowRight size={18} />
-            </a>
+            </Link>
             <a className="button button--ghost" href={profile.github} target="_blank" rel="noreferrer">
               <Github size={18} /> GitHub
             </a>
@@ -27,56 +44,88 @@ export default function Home() {
           </div>
         </div>
 
-        <aside className="hero-panel" aria-label="Proyecto destacado">
-          <div className="hero-panel__header">
-            <span>Actualmente construyendo</span>
-            <i />
-          </div>
-          <div className="hero-panel__content">
-            <span className="hero-panel__tag">Flagship</span>
+        <aside className="hero-product" aria-label="Vista previa de FinanceOS">
+          <div className="hero-product__label">
+            <span>Producto principal</span>
             <strong>FinanceOS</strong>
-            <p>Personal Finance Intelligence Platform for the Dominican Republic.</p>
-            <div className="mini-grid">
-              <div><span>Tests</span><strong>107</strong></div>
-              <div><span>Rules</span><strong>39</strong></div>
-              <div><span>Security</span><strong>Audit 0</strong></div>
-            </div>
-            <Link to="/project/financeos" className="text-link">Explorar FinanceOS <ArrowRight size={16} /></Link>
           </div>
+          <FinanceOSPreview compact />
         </aside>
       </section>
 
-      <section className="section shell" id="projects">
-        <div className="section-heading">
-          <span className="eyebrow">Selected work</span>
-          <h2>Casos reales, no solo tarjetas de tecnologías.</h2>
-          <p>Problema, arquitectura, decisiones, seguridad y resultado.</p>
+      <section className="section shell featured-project" id="projects">
+        <div className="section-heading section-heading--split">
+          <div>
+            <span className="eyebrow">Proyecto principal</span>
+            <h2>FinanceOS demuestra producto, arquitectura y criterio técnico.</h2>
+          </div>
+          <p>Una plataforma de inteligencia financiera personal diseñada para el contexto dominicano y construida con una base técnica que prioriza integridad, seguridad y evolución.</p>
         </div>
-        <div className="projects-grid">
-          {projects.map((project) => <ProjectCard project={project} key={project.slug} />)}
+
+        <div className="featured-project__grid">
+          <div className="featured-project__visual">
+            <FinanceOSPreview />
+            <small className="preview-caption">Vista conceptual del producto · reemplazable por screenshots reales.</small>
+          </div>
+
+          <article className="featured-project__content">
+            <span className="eyebrow">{financeOS.category}</span>
+            <h3>{financeOS.title}</h3>
+            <p>{financeOS.short}</p>
+
+            <div className="featured-metrics">
+              {financeOS.metrics.map((metric) => <span key={metric}>{metric}</span>)}
+            </div>
+
+            <div className="featured-points">
+              {financeOS.highlights.slice(0, 6).map((item) => <span key={item}>{item}</span>)}
+            </div>
+
+            <Link className="button button--primary button--fit" to="/project/financeos">
+              Ver caso de estudio <ArrowRight size={17} />
+            </Link>
+          </article>
+        </div>
+      </section>
+
+      <section className="section shell selected-work">
+        <div className="section-heading">
+          <span className="eyebrow">Otros proyectos</span>
+          <h2>Experiencia aplicada en diferentes contextos.</h2>
+          <p>Automatización, aplicaciones empresariales y producto web, con decisiones condicionadas por el entorno real de operación.</p>
+        </div>
+        <div className="projects-grid projects-grid--secondary">
+          {secondaryProjects.map((project) => <ProjectCard project={project} key={project.slug} />)}
         </div>
       </section>
 
       <section className="section shell" id="stack">
-        <div className="section-heading">
-          <span className="eyebrow">Technical stack</span>
-          <h2>Full-stack con contexto de operación.</h2>
+        <div className="section-heading section-heading--split">
+          <div>
+            <span className="eyebrow">Stack técnico</span>
+            <h2>Full-stack con contexto de operación.</h2>
+          </div>
+          <p>No trabajo las tecnologías de forma aislada: las conecto con datos, seguridad, despliegue, compatibilidad y mantenimiento.</p>
         </div>
+
         <div className="skill-groups">
-          {skillGroups.map((group) => (
-            <article className="skill-group" key={group.title}>
-              <h3>{group.title}</h3>
-              <div className="skills-grid">
-                {group.items.map((skill) => <span key={skill}>{skill}</span>)}
-              </div>
-            </article>
-          ))}
+          {skillGroups.map((group, index) => {
+            const Icon = skillIcons[index] ?? Code2;
+            return (
+              <article className="skill-group" key={group.title}>
+                <div className="skill-group__title"><Icon size={18} /><h3>{group.title}</h3></div>
+                <div className="skills-grid">
+                  {group.items.map((skill) => <span key={skill}>{skill}</span>)}
+                </div>
+              </article>
+            );
+          })}
         </div>
       </section>
 
-      <section className="section shell">
+      <section className="section shell how-i-work">
         <div className="section-heading">
-          <span className="eyebrow">How I work</span>
+          <span className="eyebrow">Cómo trabajo</span>
           <h2>Software robusto, seguro y mantenible.</h2>
         </div>
         <div className="principles-grid">
@@ -92,13 +141,13 @@ export default function Home() {
 
       <section className="contact shell">
         <div>
-          <span className="eyebrow">Contacto</span>
+          <span className="eyebrow">Contacto profesional</span>
           <h2>¿Construimos algo útil?</h2>
           <p>{profile.availability}</p>
         </div>
         <div className="contact-actions">
-          <Link className="button button--primary" to="/contact">Hablemos</Link>
-          <span className="secure-note"><ShieldCheck size={16} /> Portfolio técnico en evolución</span>
+          <Link className="button button--primary" to="/contact">Ver contacto</Link>
+          <span className="secure-note"><ShieldCheck size={16} /> Perfil técnico · República Dominicana</span>
         </div>
       </section>
     </main>
