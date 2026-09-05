@@ -1,9 +1,11 @@
 import { Download, Github, Linkedin, Mail, MapPin } from 'lucide-react';
 import { profile } from '../data/portfolio';
 
-export default function Contact() {
-  const hasExtraContact = Boolean(profile.email || profile.linkedin || profile.cv);
+function asset(path) {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\.\//, '')}`;
+}
 
+export default function Contact() {
   return (
     <main className="detail-page shell">
       <header className="detail-hero detail-hero--contact">
@@ -20,26 +22,20 @@ export default function Contact() {
           <div><span>GitHub</span><strong>github.com/jimmylendi</strong></div>
         </a>
 
-        {profile.linkedin && (
-          <a href={profile.linkedin} target="_blank" rel="noreferrer">
-            <Linkedin />
-            <div><span>LinkedIn</span><strong>Perfil profesional</strong></div>
-          </a>
-        )}
+        <a href={profile.linkedin} target="_blank" rel="noreferrer">
+          <Linkedin />
+          <div><span>LinkedIn</span><strong>Jimmy Gil</strong></div>
+        </a>
 
-        {profile.email && (
-          <a href={`mailto:${profile.email}`}>
-            <Mail />
-            <div><span>Email</span><strong>{profile.email}</strong></div>
-          </a>
-        )}
+        <a href={`mailto:${profile.email}`}>
+          <Mail />
+          <div><span>Email</span><strong>{profile.email}</strong></div>
+        </a>
 
-        {profile.cv && (
-          <a href={profile.cv} download>
-            <Download />
-            <div><span>Currículum</span><strong>Descargar CV</strong></div>
-          </a>
-        )}
+        <a href={asset(profile.cv)} download>
+          <Download />
+          <div><span>Currículum</span><strong>Descargar CV PDF</strong></div>
+        </a>
 
         <div>
           <MapPin />
@@ -47,12 +43,13 @@ export default function Contact() {
         </div>
       </section>
 
-      {!hasExtraContact && (
-        <section className="contact-note">
-          <span>Disponible ahora</span>
-          <p>GitHub es el canal público activo del portfolio. Email, LinkedIn y CV se habilitan desde un único archivo de configuración cuando decidas publicarlos.</p>
-        </section>
-      )}
+      <section className="contact-note contact-note--active">
+        <span>Disponible para conectar</span>
+        <p>
+          Para oportunidades profesionales o colaboración técnica, puedes escribirme por email o
+          LinkedIn. GitHub reúne el código y proyectos públicos disponibles.
+        </p>
+      </section>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 import { ArrowLeft, ExternalLink, GitBranch, LockKeyhole, ShieldCheck, TestTube2 } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
-import FinanceOSPreview from '../components/FinanceOSPreview';
+import FinanceOSEvidence from '../components/FinanceOSEvidence';
 import { projects } from '../data/portfolio';
 
 export default function ProjectDetail() {
@@ -30,13 +30,18 @@ export default function ProjectDetail() {
       </header>
 
       {project.slug === 'financeos' && (
-        <section className="detail-product-preview">
-          <FinanceOSPreview />
-          <div>
-            <span className="eyebrow">Producto en evolución</span>
-            <h2>Una plataforma financiera, no un CRUD.</h2>
-            <p>La interfaz acompaña una arquitectura de dominio con ledgers, motores de cálculo, reglas de autorización y pruebas automatizadas.</p>
+        <section className="detail-section product-evidence">
+          <div className="section-heading section-heading--split">
+            <div>
+              <span className="eyebrow">Evidencia del producto</span>
+              <h2>FinanceOS funcionando, no solo descrito.</h2>
+            </div>
+            <p>
+              Capturas reales de desarrollo preparadas para el portfolio. El navegador local fue
+              removido y no se publican credenciales ni secretos de configuración.
+            </p>
           </div>
+          <FinanceOSEvidence />
         </section>
       )}
 

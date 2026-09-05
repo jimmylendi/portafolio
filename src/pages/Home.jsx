@@ -1,11 +1,15 @@
-import { ArrowRight, Code2, Database, Github, MapPin, ServerCog, ShieldCheck, TerminalSquare } from 'lucide-react';
+import { ArrowRight, Code2, Database, Download, Github, MapPin, ServerCog, ShieldCheck, TerminalSquare } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
-import FinanceOSPreview from '../components/FinanceOSPreview';
+import FinanceOSEvidence from '../components/FinanceOSEvidence';
 import ProjectCard from '../components/ProjectCard';
 import { principles, profile, projects, skillGroups } from '../data/portfolio';
 
 const skillIcons = [Code2, ServerCog, Database, TerminalSquare];
+
+function asset(path) {
+  return `${import.meta.env.BASE_URL}${path.replace(/^\.\//, '')}`;
+}
 
 export default function Home() {
   const location = useLocation();
@@ -23,7 +27,7 @@ export default function Home() {
 
   return (
     <main>
-      <section className="hero shell">
+      <section className="hero shell hero--evidence">
         <div className="hero-copy">
           <span className="eyebrow">Software · Automatización · Datos · Infraestructura</span>
           <h1>Construyo sistemas que <span>resuelven problemas reales.</span></h1>
@@ -36,6 +40,9 @@ export default function Home() {
             <a className="button button--ghost" href={profile.github} target="_blank" rel="noreferrer">
               <Github size={18} /> GitHub
             </a>
+            <a className="button button--ghost" href={asset(profile.cv)} download>
+              <Download size={18} /> CV
+            </a>
           </div>
 
           <div className="hero-meta">
@@ -44,12 +51,12 @@ export default function Home() {
           </div>
         </div>
 
-        <aside className="hero-product" aria-label="Vista previa de FinanceOS">
+        <aside className="hero-product" aria-label="FinanceOS en ejecución">
           <div className="hero-product__label">
-            <span>Producto principal</span>
+            <span>Proyecto principal · evidencia real</span>
             <strong>FinanceOS</strong>
           </div>
-          <FinanceOSPreview compact />
+          <FinanceOSEvidence compact />
         </aside>
       </section>
 
@@ -59,14 +66,14 @@ export default function Home() {
             <span className="eyebrow">Proyecto principal</span>
             <h2>FinanceOS demuestra producto, arquitectura y criterio técnico.</h2>
           </div>
-          <p>Una plataforma de inteligencia financiera personal diseñada para el contexto dominicano y construida con una base técnica que prioriza integridad, seguridad y evolución.</p>
+          <p>
+            Plataforma de inteligencia financiera personal para República Dominicana con ledger,
+            estrategias de deuda, analítica, nómina RD y controles de seguridad.
+          </p>
         </div>
 
-        <div className="featured-project__grid">
-          <div className="featured-project__visual">
-            <FinanceOSPreview />
-            <small className="preview-caption">Vista conceptual del producto · reemplazable por screenshots reales.</small>
-          </div>
+        <div className="featured-evidence">
+          <FinanceOSEvidence compact />
 
           <article className="featured-project__content">
             <span className="eyebrow">{financeOS.category}</span>
@@ -92,7 +99,10 @@ export default function Home() {
         <div className="section-heading">
           <span className="eyebrow">Otros proyectos</span>
           <h2>Experiencia aplicada en diferentes contextos.</h2>
-          <p>Automatización, aplicaciones empresariales y producto web, con decisiones condicionadas por el entorno real de operación.</p>
+          <p>
+            Automatización, aplicaciones empresariales y producto web, con decisiones condicionadas
+            por el entorno real de operación.
+          </p>
         </div>
         <div className="projects-grid projects-grid--secondary">
           {secondaryProjects.map((project) => <ProjectCard project={project} key={project.slug} />)}
@@ -105,7 +115,10 @@ export default function Home() {
             <span className="eyebrow">Stack técnico</span>
             <h2>Full-stack con contexto de operación.</h2>
           </div>
-          <p>No trabajo las tecnologías de forma aislada: las conecto con datos, seguridad, despliegue, compatibilidad y mantenimiento.</p>
+          <p>
+            No trabajo las tecnologías de forma aislada: las conecto con datos, seguridad,
+            despliegue, compatibilidad y mantenimiento.
+          </p>
         </div>
 
         <div className="skill-groups">

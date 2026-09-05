@@ -1,14 +1,15 @@
 export const profile = {
-  name: 'Jimmy',
-  headline: 'Senior Technology Programmer',
+  name: 'Jimmy Gil',
+  headline: 'Ingeniero de Sistemas · Full-Stack · Datos & Automatización',
   location: 'La Romana, República Dominicana',
   intro:
-    'Diseño y desarrollo aplicaciones robustas, seguras y orientadas a negocio, combinando software, automatización, bases de datos e infraestructura.',
+    'Ingeniero en Sistemas con 5+ años de experiencia construyendo aplicaciones, automatizaciones y soluciones de datos que conectan software con necesidades reales de operación.',
   github: 'https://github.com/jimmylendi',
-  linkedin: '',
-  email: '',
-  cv: '',
-  availability: 'Disponible para conversar sobre desarrollo de software, automatización, sistemas internos y soluciones orientadas a datos.',
+  linkedin: 'https://www.linkedin.com/in/jimmy-gil-099034b3/',
+  email: 'jimmylendi@gmail.com',
+  cv: './cv/Jimmy_Gil_CV.pdf',
+  availability:
+    'Disponible para conversar sobre desarrollo full-stack, automatización, sistemas internos, datos e iniciativas de modernización tecnológica.',
 };
 
 export const skillGroups = [
@@ -18,15 +19,79 @@ export const skillGroups = [
   },
   {
     title: 'Backend',
-    items: ['PHP', 'Python', 'Flask', 'Firebase', 'REST architecture'],
+    items: ['PHP', 'Python', 'Flask', '.NET / C#', 'Firebase', 'REST'],
   },
   {
     title: 'Datos',
-    items: ['Oracle', 'PL/SQL', 'MySQL', 'Firestore', 'SQL'],
+    items: ['Oracle', 'PL/SQL', 'MySQL', 'SQL Server', 'Firestore', 'Power BI', 'Pandas'],
   },
   {
     title: 'Operaciones',
-    items: ['Git / GitHub', 'Windows Server', 'Networking', 'Task Scheduler', 'cPanel'],
+    items: ['Git / GitHub', 'Docker', 'Windows Server', 'Networking', 'Task Scheduler', 'cPanel'],
+  },
+];
+
+export const experience = [
+  {
+    role: 'Analista de Desarrollo',
+    company: 'Costasur Dominicana',
+    period: 'Ene 2021 – Presente',
+    highlights: [
+      'Implementación de un sistema de gestión de mantenimiento preventivo en Oracle Forms.',
+      'Desarrollo de módulos PHP/Oracle para tickets con firma digital.',
+      'Optimización de consultas PL/SQL, reduciendo tiempos de reporte de 8 s a 4 s.',
+      'Desarrollo de dashboards Power BI conectados a Oracle y MySQL.',
+    ],
+  },
+];
+
+export const education = [
+  {
+    title: 'Máster en Ciencia de Datos aplicada a la Inteligencia de Negocios',
+    institution: 'FUNIBER',
+    period: '2025 – Presente',
+  },
+  {
+    title: 'Ingeniería en Sistemas',
+    institution: 'Universidad O&M',
+    period: '2015 – 2019',
+  },
+];
+
+export const certifications = [
+  'Oracle Database SQL Certified Associate',
+  'Microsoft Excel Expert',
+  'Analista de Datos · UDEM',
+  'Diplomado en Ciberseguridad · INFOTEP',
+  'Diplomado en Angular Intermedio · ITLA',
+  'Diplomado en Java Intermedio · ITLA',
+  'Diplomado en C# Intermedio · ITLA',
+];
+
+export const financeOSEvidence = [
+  {
+    src: './images/financeos/dashboard.webp',
+    title: 'Dashboard financiero',
+    eyebrow: 'Centro financiero',
+    description: 'Patrimonio, flujo, presupuesto, metas, obligaciones y recomendaciones en una vista responsive.',
+  },
+  {
+    src: './images/financeos/transactions.webp',
+    title: 'Ledger transaccional',
+    eyebrow: 'Movimientos',
+    description: 'Historial, filtros y trazabilidad de movimientos con soporte para reversos y auditoría.',
+  },
+  {
+    src: './images/financeos/reports.webp',
+    title: 'Reportes financieros',
+    eyebrow: 'Analytics',
+    description: 'Flujo, posición financiera, deuda, presupuesto, metas y exportación de datos.',
+  },
+  {
+    src: './images/financeos/payroll-rd.webp',
+    title: 'Simulador de nómina RD',
+    eyebrow: 'República Dominicana',
+    description: 'Estimación de AFP, SFS, ISR y descuentos con configuración verificable y versionada.',
   },
 ];
 
@@ -38,7 +103,7 @@ export const projects = [
     category: 'Flagship · FinTech',
     status: 'En evolución activa',
     featured: true,
-    stack: ['React 19', 'Vite', 'Firebase', 'Firestore Rules', 'Node Test Runner'],
+    stack: ['React 19', 'Vite 7', 'Firebase', 'Firestore Rules', 'Node Test Runner'],
     metrics: ['107 tests', '39 reglas probadas', '0 vulnerabilidades audit', 'Responsive'],
     problem:
       'Las herramientas financieras personales suelen quedarse en registrar gastos. FinanceOS busca convertir los datos financieros en decisiones sobre liquidez, deuda, presupuesto, metas, salud financiera y planificación.',
@@ -67,7 +132,8 @@ export const projects = [
     result:
       'Proyecto portfolio-ready que demuestra producto, arquitectura, seguridad, testing, UX y modelado financiero en una sola plataforma.',
     repo: '',
-    repoNote: 'Código fuente privado. El caso de estudio documenta arquitectura, decisiones y resultados sin exponer información sensible.',
+    repoNote:
+      'Código fuente privado. El caso de estudio documenta arquitectura, decisiones y resultados sin exponer información sensible.',
   },
   {
     slug: 'backup-monitoring',

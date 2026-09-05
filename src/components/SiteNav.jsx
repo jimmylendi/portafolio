@@ -12,8 +12,8 @@ export default function SiteNav() {
         <Link className="brand" to="/" onClick={close} aria-label="Ir al inicio">
           <span className="brand-dot" />
           <span className="brand-copy">
-            <strong>Jimmy</strong>
-            <small>Software & Technology</small>
+            <strong>Jimmy Gil</strong>
+            <small>Software · Data · Automation</small>
           </span>
         </Link>
 

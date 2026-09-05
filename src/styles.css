@@ -70,3 +70,63 @@ body{font-size:16px}
 
 @media(max-width:1050px){.hero{grid-template-columns:1fr;gap:34px}.hero-product{max-width:700px}.featured-project__grid{grid-template-columns:1fr}.projects-grid--secondary{grid-template-columns:repeat(2,minmax(0,1fr))}.section-heading--split{grid-template-columns:1fr;gap:10px}.detail-product-preview{grid-template-columns:1fr}.principles-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.site-nav{min-height:68px}.brand-copy small{display:none}.hero{padding-block:44px 48px}.hero h1{font-size:clamp(2.75rem,13vw,4.2rem)}.hero-copy>p{font-size:.98rem}.hero-product__label{margin-inline:2px}.finance-preview{grid-template-columns:38px 1fr;min-height:300px}.finance-preview__rail{padding-inline:6px}.finance-preview__main{padding:14px}.finance-preview__kpis{grid-template-columns:1fr}.finance-preview__rows{grid-template-columns:1fr}.finance-preview__chart{display:none}.section{padding-block:54px}.featured-project{padding-top:62px}.featured-project__visual{padding:10px}.featured-project__content{padding:24px}.featured-metrics,.featured-points{grid-template-columns:1fr}.button--fit{width:100%}.projects-grid--secondary{grid-template-columns:1fr}.project-card{min-height:330px}.principles-grid{grid-template-columns:1fr}.principles-grid article{min-height:auto}.detail-page{padding-block:36px 70px}.detail-product-preview{padding-top:35px}.detail-hero h1{font-size:clamp(2.8rem,15vw,4.7rem)}.repo-cta--private{flex-direction:row}.contact{margin-top:35px;margin-bottom:35px}}
+
+/* v1.2 — evidence, CV and professional profile */
+.hero--evidence{grid-template-columns:minmax(0,.92fr) minmax(440px,1.08fr)}
+.hero--evidence .hero-actions{flex-wrap:wrap}
+.evidence-hero{margin:0}
+.evidence-window{overflow:hidden;border:1px solid rgba(105,230,211,.18);border-radius:18px;background:#071925;box-shadow:0 24px 70px rgba(0,0,0,.24)}
+.evidence-window__bar{height:34px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#091a27;border-bottom:1px solid rgba(255,255,255,.06)}
+.evidence-window__bar i{width:7px;height:7px;border-radius:50%;background:#355060}
+.evidence-window__bar i:first-child{background:#69e6d3}.evidence-window__bar i:nth-child(2){background:#9ebeff}
+.evidence-window__bar span{margin-left:5px;color:#6f8998;font-size:.62rem;letter-spacing:.04em}
+.evidence-window img{display:block;width:100%;height:365px;object-fit:cover;object-position:top}
+.evidence-hero figcaption{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:10px 4px 0}
+.evidence-hero figcaption span{color:var(--teal);font-size:.64rem;font-weight:800;text-transform:uppercase;letter-spacing:.09em}
+.evidence-hero figcaption strong{color:#9eb4bf;font-size:.74rem}
+
+.featured-evidence{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(330px,.85fr);gap:28px;align-items:stretch}
+.featured-evidence>.evidence-hero{padding:16px;border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.018)}
+.featured-evidence .evidence-window img{height:430px}
+
+.product-evidence{padding-top:48px}
+.evidence-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.evidence-card{margin:0;padding:12px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.018)}
+.evidence-card>a{display:block}
+.evidence-window--gallery{border-radius:13px;transition:transform .18s ease,border-color .18s ease}
+.evidence-card:hover .evidence-window--gallery{transform:translateY(-2px);border-color:rgba(105,230,211,.34)}
+.evidence-window--gallery img{height:330px}
+.evidence-card figcaption{display:flex;justify-content:space-between;gap:20px;padding:15px 5px 5px}
+.evidence-card figcaption>div{min-width:0}.evidence-card figcaption>svg{flex:0 0 auto;color:#718c9a;margin-top:5px}
+.evidence-card figcaption span{display:block;color:var(--teal);font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.evidence-card figcaption strong{display:block;margin-top:4px;font-size:.96rem}
+.evidence-card figcaption p{margin:6px 0 0;color:#7f98a6;font-size:.78rem;line-height:1.5}
+
+.profile-hero{align-items:center}.profile-hero__meta{display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:18px}.profile-hero__meta strong{color:#c9d9e1}.profile-hero__meta span{color:#7e97a5}
+.timeline{display:grid;gap:12px}.timeline-item{display:grid;grid-template-columns:44px 1fr;gap:18px;padding:24px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02)}
+.timeline-item__icon{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:rgba(105,230,211,.09);color:var(--teal)}
+.timeline-item span{color:var(--teal);font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.timeline-item h3{margin:7px 0 14px;font-size:1.15rem}
+.timeline-item ul{margin:0;padding-left:18px;color:#8fa6b4}.timeline-item li{margin:7px 0;line-height:1.55}
+.credentials-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.credential-panel{padding:24px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.02)}
+.credential-panel__heading{display:flex;align-items:center;gap:9px;margin-bottom:18px;color:#d8e5eb;font-weight:800}.credential-panel__heading svg{color:var(--teal)}
+.credential-row{padding:14px 0;border-top:1px solid rgba(255,255,255,.055)}.credential-row:first-of-type{border-top:0}.credential-row strong{display:block;font-size:.9rem}.credential-row span{display:block;margin-top:5px;color:#778f9d;font-size:.75rem}
+.credential-tags{display:flex;flex-wrap:wrap;gap:8px}.credential-tags span{padding:8px 10px;border:1px solid var(--line);border-radius:9px;color:#91a8b4;font-size:.72rem}
+.contact-note--active{border-left-color:var(--teal)}
+.footer-links{display:flex;align-items:center;gap:16px}.footer-links a{display:flex;align-items:center;gap:5px}
+
+@media(max-width:1050px){
+  .hero--evidence{grid-template-columns:1fr}
+  .featured-evidence{grid-template-columns:1fr}
+  .evidence-hero{max-width:760px}
+  .credentials-grid{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+  .evidence-grid{grid-template-columns:1fr}
+  .evidence-window img,.featured-evidence .evidence-window img{height:285px}
+  .evidence-window--gallery img{height:300px}
+  .evidence-card figcaption{padding-inline:2px}
+  .profile-hero .button{width:100%}
+  .timeline-item{grid-template-columns:1fr}.timeline-item__icon{margin-bottom:2px}
+  .footer-links{flex-wrap:wrap}
+}
