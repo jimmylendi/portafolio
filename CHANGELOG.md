@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.3.0
+
+- Agrega SEO técnico: canonical, Open Graph, metadata dinámica y schema.org.
+- Agrega robots.txt y sitemap.xml para la URL pública.
+- Mejora accesibilidad con skip link, focus-visible y reduced motion.
+- Agrega franja de credenciales profesionales en Home.
+- Optimiza carga percibida de screenshots reales de FinanceOS.
+- Mejora footer profesional y enlaces de identidad.
+- Refuerza GitHub Actions con auditoría de seguridad antes del build.
+
+
 ## 1.2.0
 
 - Sustituye la evidencia conceptual principal de FinanceOS por screenshots reales.

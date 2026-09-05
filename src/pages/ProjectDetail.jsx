@@ -9,7 +9,7 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
-      <main className="detail-page shell">
+      <main className="detail-page shell" id="main-content">
         <h1>Proyecto no encontrado</h1>
         <Link className="text-link" to="/"><ArrowLeft size={16} /> Volver</Link>
       </main>
@@ -17,7 +17,7 @@ export default function ProjectDetail() {
   }
 
   return (
-    <main className="detail-page shell">
+    <main className="detail-page shell" id="main-content">
       <Link className="back-link" to="/"><ArrowLeft size={16} /> Volver al portfolio</Link>
 
       <header className="detail-hero">

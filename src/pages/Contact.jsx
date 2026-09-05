@@ -7,7 +7,7 @@ function asset(path) {
 
 export default function Contact() {
   return (
-    <main className="detail-page shell">
+    <main className="detail-page shell" id="main-content">
       <header className="detail-hero detail-hero--contact">
         <div>
           <span className="eyebrow">Contacto profesional</span>

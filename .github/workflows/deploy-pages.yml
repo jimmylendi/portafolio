@@ -27,10 +27,13 @@ jobs:
           node-version: 22
           cache: npm
 
-      - name: Install
+      - name: Install locked dependencies
         run: npm ci
 
-      - name: Build
+      - name: Security audit
+        run: npm audit --audit-level=high
+
+      - name: Production build
         run: npm run build
 
       - name: Setup Pages

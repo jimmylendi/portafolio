@@ -26,7 +26,7 @@ export default function Home() {
   }, [location.search]);
 
   return (
-    <main>
+    <main id="main-content">
       <section className="hero shell hero--evidence">
         <div className="hero-copy">
           <span className="eyebrow">Software · Automatización · Datos · Infraestructura</span>
@@ -41,7 +41,7 @@ export default function Home() {
               <Github size={18} /> GitHub
             </a>
             <a className="button button--ghost" href={asset(profile.cv)} download>
-              <Download size={18} /> CV
+              <Download size={18} /> Descargar CV
             </a>
           </div>
 
@@ -58,6 +58,22 @@ export default function Home() {
           </div>
           <FinanceOSEvidence compact />
         </aside>
+      </section>
+
+
+      <section className="proof-strip shell" aria-label="Credenciales profesionales">
+        <article>
+          <strong>5+ años</strong>
+          <span>Desarrollo full-stack</span>
+        </article>
+        <article>
+          <strong>Oracle SQL</strong>
+          <span>Certified Associate</span>
+        </article>
+        <article>
+          <strong>Data Science</strong>
+          <span>Máster en curso</span>
+        </article>
       </section>
 
       <section className="section shell featured-project" id="projects">

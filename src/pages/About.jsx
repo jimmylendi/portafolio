@@ -7,7 +7,7 @@ function asset(path) {
 
 export default function About() {
   return (
-    <main className="detail-page shell">
+    <main className="detail-page shell" id="main-content">
       <header className="detail-hero profile-hero">
         <div>
           <span className="eyebrow">Perfil profesional</span>

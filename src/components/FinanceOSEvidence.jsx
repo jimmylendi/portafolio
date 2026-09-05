@@ -21,6 +21,8 @@ export default function FinanceOSEvidence({ compact = false }) {
             width="1064"
             height="1386"
             loading="eager"
+            decoding="async"
+            fetchPriority="high"
           />
         </div>
         <figcaption>
@@ -47,6 +49,7 @@ export default function FinanceOSEvidence({ compact = false }) {
                 width="1064"
                 height="900"
                 loading="lazy"
+                decoding="async"
               />
             </div>
           </a>
